@@ -1,6 +1,6 @@
 This file contains instructions on how to install a Freqtrade Docker container on Linux Mint 20.2
 
-## 1 Create Freqtrade user data drectory
+## Create Freqtrade user data drectory
 
 This directory will contain all files that are manually made and regularly changed, like config files, strategy files, databases and candle data.
 
@@ -12,6 +12,8 @@ These instructions come straight from the Freqtrade website: https://www.freqtra
 mkdir ft_userdata
 cd ft_userdata/
 ```
+
+## Downloading the Docker compose file
 
 ```
 # Download the docker-compose file from the repository
@@ -25,10 +27,15 @@ Compose is a tool for defining and running multi-container Docker applications. 
 sudo docker-compose pull
 ```
 
+## Creating a user directory for freqtrade
+
 ```
 # Create user directory structure with the necessary freqtrade directories and files
 sudo docker-compose run --rm freqtrade create-userdir --userdir user_data
 ```
+
+## Make the config.json file
+
 
 ```
 # Create configuration - Requires answering interactive questions

@@ -2,7 +2,7 @@ We will be installing Docker Community Edition, which is free to use and open so
 
 I will not be using the apt cache system but want to manually execute every step of the way.
 
-## 1 Download
+## Download
 
 Download the package for my distribution
 
@@ -32,7 +32,7 @@ https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce
 https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-scan-plugin_0.9.0~ubuntu-focal_amd64.deb
 ```
 
-## 2 Installation
+## Installation
 
 Install the downloaded packages with:
 
@@ -40,7 +40,7 @@ Install the downloaded packages with:
 sudo apt install ./containerd.io_1.4.9-1_amd64.deb ./docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb ./docker-ce-rootless-extras_20.10.9~3-0~ubuntu-focal_amd64.deb ./docker-scan-plugin_0.9.0~ubuntu-focal_amd64.deb ./docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb
 ```
 
-## 3 Verify
+## Verify
 
 Verify that Docker Engine is installed correctly by running the hello-world image:
 
@@ -82,7 +82,7 @@ For more examples and ideas, visit:
 
 Now you can remove or archive the downloaded Docker .deb installation files.
 
-## 4 Download and install Docker Compose
+## Download and install Docker Compose
 
 Docker compose is necessary for downloading and installing the Freqtrade Docker container.
 

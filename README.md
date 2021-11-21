@@ -8,7 +8,7 @@ This repository contains the following intructions:
 3. Create a basic configuration with Freqtrade
 4. Using Docker without sudo (AT YOUR OWN RISK)
 5. Download some backtesting data and do a backtest
-
+6. Run the bot in dry run mode from the command line
 5. Some basic stuff 
 4. Create a service file of the Freqtrade bot
 7. Start the bot as a service with dryrun option
