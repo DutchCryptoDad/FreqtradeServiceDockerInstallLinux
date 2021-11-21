@@ -82,6 +82,16 @@ For more examples and ideas, visit:
 
 Now you can remove or archive the downloaded Docker .deb installation files.
 
+## 4 Download and install Docker Compose
+
+Docker compose is necessary for downloading and installing the Freqtrade Docker container.
+
+
+```
+sudo wget -O  /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-linux-x86_64
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 ## More
 
 More on installing Docker see:
