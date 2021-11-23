@@ -10,25 +10,16 @@ Open the file and put the following in the file:
 
 ```
 [Unit]
-Description=Freqtrade Docker container
+Description=%i service with docker compose
 Requires=docker.service
 After=docker.service
-Type=notify
-NotifyAccess=all
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=freqtrade_docker
-User=dcd
-Group=dcd
 
 [Service]
 Type=oneshot
-RemainAfterExit=yes
-Restart=always
-WorkingDirectory=/home/dcd/ft_userdata/docker-compose.yml
-ExecStart=/usr/local/bin/docker-compose up -d
+RemainAfterExit=true
+WorkingDirectory=/home/dcd/ft_userdata/%i
+ExecStart=/usr/local/bin/docker-compose up -d --remove-orphans
 ExecStop=/usr/local/bin/docker-compose down
-TimeoutStartSec=0
 
 [Install]
 WantedBy=multi-user.target
@@ -47,7 +38,7 @@ To start the service at system boot, enter:
 systemctl enable freqtrade_docker.service
 ```
 
-Start the service:
+Start the service manually:
 
 ```
 sudo systemctl start freqtrade_docker.service
@@ -57,6 +48,14 @@ Check the service status:
 
 ```
 sudo systemctl status freqtrade_docker.service
+```
+
+And to check if the docker container is working:
+
+```
+docker ps
+
+docker container logs <container id>
 ```
 
 Stop the service:
@@ -71,28 +70,10 @@ Disable the service at system startup (no start at boot):
 sudo systemctl disable freqtrade_docker.service
 ```
 
-Show activity:
+Show freqtrade activity:
 
 ```
-sudo tail -f /var/log/syslog
+tail -f user_data/logs/freqtrade.log
 ```
 
 
-
-[Unit]
-Description=Freqtrade bot
-[Service]
-WorkingDirectory=/home/dcd/freqtrade
-ExecStart=/home/dcd/freqtrade/.env/bin/freqtrade trade --config /home/dcd/freqtrade/config.json
-Restart=always
-RestartSec=10
-Type=notify
-NotifyAccess=all
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=freqtrade
-User=root
-Group=root
-Environment=NODE_ENV=production
-[Install]
-WantedBy=multi-user.target
